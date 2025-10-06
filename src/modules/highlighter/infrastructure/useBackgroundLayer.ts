@@ -1,9 +1,11 @@
 import { useEffect, useRef } from 'react'
-import { Size } from 'shared/api/types'
-import { createOffscreenCanvas } from 'shared/canvas'
-import { drawBackground } from 'features/highlighter/renderers/backgroundRenderer'
 
-export const useBackgroundCanvas = (size: Size, image: HTMLImageElement | null) => {
+import { createOffscreenCanvas } from 'core/canvas'
+import { Size } from 'core/types'
+
+import { drawBackground } from '../renderers/backgroundRenderer'
+
+export const useBackgroundLayer = (size: Size, image: HTMLImageElement | null) => {
         const offscreenRef = useRef<HTMLCanvasElement | null>(null)
         const lastKeyRef = useRef<string>('')
 

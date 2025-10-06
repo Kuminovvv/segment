@@ -6,17 +6,18 @@ import {
         ExtendedImageHighlighterProps,
         HandlePosition,
         ImageHighlighterRef,
-        Rect
-} from 'shared/api/types'
-import { useImageSource } from 'features/highlighter/hooks/useImageSource'
-import { useHighlighterController } from 'features/highlighter/hooks/useHighlighterController'
-import { useBackgroundCanvas } from 'features/highlighter/hooks/useBackgroundCanvas'
-import { useCanvasRendering } from 'features/highlighter/hooks/useCanvasRendering'
-import { useContextMenuController } from 'features/highlighter/hooks/useContextMenuController'
-import { isPointInsideRect, rotateAroundCenter } from 'shared/geometry'
-import { getCanvasPoint } from 'shared/canvas'
-import { defaultSortOptions } from 'features/highlighter/model/sorting'
-import { SortOptions } from 'shared/api/types'
+        Rect,
+        SortOptions
+} from 'core/types'
+import { getCanvasPoint } from 'core/canvas'
+import { isPointInsideRect, rotateAroundCenter } from 'core/geometry'
+
+import { useContextMenuController } from '../controllers/useContextMenuController'
+import { useHighlighterController } from '../controllers/useHighlighterController'
+import { defaultSortOptions } from '../domain/sorting'
+import { useBackgroundLayer } from '../infrastructure/useBackgroundLayer'
+import { useCanvasRenderer } from '../infrastructure/useCanvasRenderer'
+import { useImageSource } from '../infrastructure/useImageSource'
 
 const CANVAS_STYLE: React.CSSProperties = {
         maxWidth: '100%',
@@ -58,9 +59,9 @@ export const ImageHighlighterModule = forwardRef<ImageHighlighterRef, ExtendedIm
                         setRotation
                 } = useHighlighterController({ ...props, cores, canvasRef, canvasSize: size })
 
-                const backgroundRef = useBackgroundCanvas(size, image)
+                const backgroundRef = useBackgroundLayer(size, image)
 
-                useCanvasRendering({
+                useCanvasRenderer({
                         canvasRef,
                         size,
                         background: backgroundRef,

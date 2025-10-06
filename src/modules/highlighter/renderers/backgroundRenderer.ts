@@ -1,4 +1,4 @@
-import { Size } from 'shared/api/types'
+import { Size } from 'core/types'
 
 export const drawBackground = (
         ctx: CanvasRenderingContext2D,

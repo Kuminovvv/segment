@@ -1,4 +1,4 @@
-import { Rect, SortAxis, SortDirection, SortOptions } from 'shared/api/types'
+import { Rect, SortAxis, SortDirection, SortOptions } from 'core/types'
 
 const getAxisValue = (rect: Rect, axis: SortAxis) => {
         const [x1, y1, x2, y2] = rect

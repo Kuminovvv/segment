@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import type { MutableRefObject, RefObject } from 'react'
-import { HandlePosition, Rect, Size } from 'shared/api/types'
-import { drawRectangles } from 'features/highlighter/renderers/rectanglesRenderer'
-import { drawMagnifier } from 'features/highlighter/renderers/magnifierRenderer'
+
+import { HandlePosition, Rect, Size } from 'core/types'
+
+import { drawMagnifier } from '../renderers/magnifierRenderer'
+import { drawRectangles } from '../renderers/rectanglesRenderer'
 
 interface RenderOptions {
         canvasRef: RefObject<HTMLCanvasElement | null>
@@ -32,7 +34,7 @@ const ensureCanvasSize = (canvas: HTMLCanvasElement, size: Size) => {
         }
 }
 
-export const useCanvasRendering = ({
+export const useCanvasRenderer = ({
         canvasRef,
         size,
         background,

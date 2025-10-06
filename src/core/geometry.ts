@@ -1,4 +1,4 @@
-import { HandlePosition, Rect, Size } from 'shared/api/types'
+import { HandlePosition, Rect, Size } from './types'
 
 export const clamp = (value: number, min: number, max: number) => Math.min(Math.max(value, min), max)
 

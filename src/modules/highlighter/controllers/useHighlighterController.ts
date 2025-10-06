@@ -1,11 +1,24 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import type { Dispatch, MouseEvent, RefObject, SetStateAction } from 'react'
-import { ExtendedImageHighlighterProps, HandlePosition, Rect, Size } from 'shared/api/types'
-import { clampRect, detectHandle, ensureMinSize, normalizeRect, rotateAroundCenter } from 'shared/geometry'
-import { getCanvasPoint } from 'shared/canvas'
-import { createNextRect } from 'features/highlighter/model/rectFactory'
-import { defaultSortOptions, stableSort } from 'features/highlighter/model/sorting'
-import { SortOptions } from 'shared/api/types'
+
+import { getCanvasPoint } from 'core/canvas'
+import {
+        clampRect,
+        detectHandle,
+        ensureMinSize,
+        normalizeRect,
+        rotateAroundCenter
+} from 'core/geometry'
+import {
+        ExtendedImageHighlighterProps,
+        HandlePosition,
+        Rect,
+        Size,
+        SortOptions
+} from 'core/types'
+
+import { createNextRect } from '../domain/rectFactory'
+import { defaultSortOptions, stableSort } from '../domain/sorting'
 
 const MIN_RECT_SIZE = 0.01
 

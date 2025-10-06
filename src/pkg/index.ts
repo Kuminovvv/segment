@@ -1,1 +1,1 @@
-export { ImageHighlighterModule } from '../features/highlighter'
+export { ImageHighlighterModule } from '../modules/highlighter/api'

@@ -1,5 +1,5 @@
-import { HandlePosition, Rect, Size } from 'shared/api/types'
-import { rectToPixels } from 'shared/geometry'
+import { HandlePosition, Rect, Size } from 'core/types'
+import { rectToPixels } from 'core/geometry'
 
 export interface DrawRectanglesOptions {
         ctx: CanvasRenderingContext2D

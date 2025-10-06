@@ -1,4 +1,9 @@
-export { ImageHighlighterModule } from './features/highlighter'
-export type { ImageHighlighterRef } from 'shared/api/types'
-export type { ExtendedImageHighlighterProps, ImageHighlighterProps } from 'shared/api/types'
-export type { SortAxis, SortDirection, SortOptions } from './features/highlighter'
+export { ImageHighlighterModule, defaultSortOptions, stableSort } from './modules/highlighter/api'
+export type {
+        ImageHighlighterRef,
+        ExtendedImageHighlighterProps,
+        ImageHighlighterProps,
+        SortAxis,
+        SortDirection,
+        SortOptions
+} from 'core/types'
