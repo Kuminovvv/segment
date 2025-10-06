@@ -7,15 +7,16 @@ import {
         HandlePosition,
         ImageHighlighterRef,
         Rect
-} from 'api/types'
-import { useImageSource } from 'hooks/useImageSource'
-import { useHighlighterController } from 'hooks/useHighlighterController'
-import { useBackgroundCanvas } from 'hooks/useBackgroundCanvas'
-import { useCanvasRendering } from 'hooks/useCanvasRendering'
-import { useContextMenuController } from 'hooks/useContextMenuController'
-import { isPointInsideRect, rotateAroundCenter } from 'utils/geometry'
-import { getCanvasPoint } from 'utils/canvas'
-import { defaultSortOptions, SortOptions } from 'core/sorting'
+} from 'shared/api/types'
+import { useImageSource } from 'features/highlighter/hooks/useImageSource'
+import { useHighlighterController } from 'features/highlighter/hooks/useHighlighterController'
+import { useBackgroundCanvas } from 'features/highlighter/hooks/useBackgroundCanvas'
+import { useCanvasRendering } from 'features/highlighter/hooks/useCanvasRendering'
+import { useContextMenuController } from 'features/highlighter/hooks/useContextMenuController'
+import { isPointInsideRect, rotateAroundCenter } from 'shared/geometry'
+import { getCanvasPoint } from 'shared/canvas'
+import { defaultSortOptions } from 'features/highlighter/model/sorting'
+import { SortOptions } from 'shared/api/types'
 
 const CANVAS_STYLE: React.CSSProperties = {
         maxWidth: '100%',

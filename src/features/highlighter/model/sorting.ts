@@ -1,13 +1,4 @@
-import { Rect } from 'api/types'
-
-export type SortAxis = 'top' | 'bottom' | 'left' | 'right' | 'area' | 'none'
-export type SortDirection = 'asc' | 'desc'
-
-export interface SortOptions {
-        by?: SortAxis
-        dir?: SortDirection
-        comparator?: (a: Rect, b: Rect) => number
-}
+import { Rect, SortAxis, SortDirection, SortOptions } from 'shared/api/types'
 
 const getAxisValue = (rect: Rect, axis: SortAxis) => {
         const [x1, y1, x2, y2] = rect
@@ -44,8 +35,8 @@ export function stableSort(rects: Rect[], options: SortOptions): SortResult {
                 ...options
         }
         if (by === 'none') {
-                        const identity = rects.map((_, index) => index)
-                        return { rects: [...rects], oldToNew: identity, newToOld: identity }
+                const identity = rects.map((_, index) => index)
+                return { rects: [...rects], oldToNew: identity, newToOld: identity }
         }
         const cmp = comparator ?? ((a: Rect, b: Rect) => {
                 const av = getAxisValue(a, by)

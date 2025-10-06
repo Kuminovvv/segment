@@ -1,15 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { ExtendedImageHighlighterProps, HandlePosition, Rect, Size } from 'api/types'
-import { clampRect, detectHandle, ensureMinSize, normalizeRect, rotateAroundCenter } from 'utils/geometry'
-import { getCanvasPoint } from 'utils/canvas'
-import { createNextRect } from 'utils/rectFactory'
-import { SortOptions, defaultSortOptions, stableSort } from 'core/sorting'
+import type { Dispatch, MouseEvent, RefObject, SetStateAction } from 'react'
+import { ExtendedImageHighlighterProps, HandlePosition, Rect, Size } from 'shared/api/types'
+import { clampRect, detectHandle, ensureMinSize, normalizeRect, rotateAroundCenter } from 'shared/geometry'
+import { getCanvasPoint } from 'shared/canvas'
+import { createNextRect } from 'features/highlighter/model/rectFactory'
+import { defaultSortOptions, stableSort } from 'features/highlighter/model/sorting'
+import { SortOptions } from 'shared/api/types'
 
 const MIN_RECT_SIZE = 0.01
 
 
 interface ControllerOptions extends ExtendedImageHighlighterProps {
-        canvasRef: React.RefObject<HTMLCanvasElement | null>
+        canvasRef: RefObject<HTMLCanvasElement | null>
         canvasSize: Size
 }
 
@@ -28,9 +30,9 @@ export interface HighlighterController {
         dragHandle: HandlePosition
         rotation: number
         sortOptions: SortOptions
-        handleMouseDown: (event: React.MouseEvent<HTMLCanvasElement>) => void
-        handleMouseMove: (event: React.MouseEvent<HTMLCanvasElement>) => void
-        handleMouseUp: (event: React.MouseEvent<HTMLCanvasElement>) => void
+        handleMouseDown: (event: MouseEvent<HTMLCanvasElement>) => void
+        handleMouseMove: (event: MouseEvent<HTMLCanvasElement>) => void
+        handleMouseUp: (event: MouseEvent<HTMLCanvasElement>) => void
         handleMouseLeave: () => void
         handleBlur: () => void
         registerKeyboard: () => void
@@ -41,7 +43,7 @@ export interface HighlighterController {
         setSelected: (index: number | null) => void
         applySort: (options?: Partial<SortOptions>) => void
         replaceRects: (updater: (rects: Rect[]) => Rect[]) => void
-        setRotation: React.Dispatch<React.SetStateAction<number>>
+        setRotation: Dispatch<SetStateAction<number>>
 }
 
 export const useHighlighterController = ({
@@ -172,7 +174,7 @@ export const useHighlighterController = ({
         )
 
         const handleMouseDown = useCallback(
-                (event: React.MouseEvent<HTMLCanvasElement>) => {
+                (event: MouseEvent<HTMLCanvasElement>) => {
                         const canvas = canvasRef.current
                         if (!canvas) return
                         const pointer = getCanvasPoint(event, canvas)
@@ -206,7 +208,7 @@ export const useHighlighterController = ({
         )
 
         const handleMouseMove = useCallback(
-                (event: React.MouseEvent<HTMLCanvasElement>) => {
+                (event: MouseEvent<HTMLCanvasElement>) => {
                         const canvas = canvasRef.current
                         if (!canvas) return
                         const pointer = getCanvasPoint(event, canvas)
@@ -272,7 +274,7 @@ export const useHighlighterController = ({
         )
 
         const handleMouseUp = useCallback(
-                (event: React.MouseEvent<HTMLCanvasElement>) => {
+                (event: MouseEvent<HTMLCanvasElement>) => {
                         const canvas = canvasRef.current
                         if (!canvas) return
                         const pointer = getCanvasPoint(event, canvas)

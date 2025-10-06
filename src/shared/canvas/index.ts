@@ -1,6 +1,7 @@
-import { Size } from 'api/types'
+import type { MouseEvent } from 'react'
+import { Size } from 'shared/api/types'
 
-export const getCanvasPoint = (event: React.MouseEvent<HTMLCanvasElement>, canvas: HTMLCanvasElement) => {
+export const getCanvasPoint = (event: MouseEvent<HTMLCanvasElement>, canvas: HTMLCanvasElement) => {
         const rect = canvas.getBoundingClientRect()
         const x = (event.clientX - rect.left) / rect.width
         const y = (event.clientY - rect.top) / rect.height

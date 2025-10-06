@@ -1,5 +1,5 @@
-import { HandlePosition, Rect, Size } from 'api/types'
-import { rectToPixels } from 'utils/geometry'
+import { HandlePosition, Rect, Size } from 'shared/api/types'
+import { rectToPixels } from 'shared/geometry'
 
 export const drawMagnifier = (
         ctx: CanvasRenderingContext2D,

@@ -1,12 +1,13 @@
 import { useEffect } from 'react'
-import { HandlePosition, Rect, Size } from 'api/types'
-import { drawRectangles } from 'rendering/rectangles'
-import { drawMagnifier } from 'rendering/magnifier'
+import type { MutableRefObject, RefObject } from 'react'
+import { HandlePosition, Rect, Size } from 'shared/api/types'
+import { drawRectangles } from 'features/highlighter/renderers/rectanglesRenderer'
+import { drawMagnifier } from 'features/highlighter/renderers/magnifierRenderer'
 
 interface RenderOptions {
-        canvasRef: React.RefObject<HTMLCanvasElement | null>
+        canvasRef: RefObject<HTMLCanvasElement | null>
         size: Size
-        background: React.MutableRefObject<HTMLCanvasElement | null>
+        background: MutableRefObject<HTMLCanvasElement | null>
         rects: Rect[]
         selected: number | null
         hovered: number | null

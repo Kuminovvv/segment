@@ -1,1 +1,1 @@
-export { ImageHighlighterModule } from './ImageHighlighterModule'
+export { ImageHighlighterModule } from '../features/highlighter'

@@ -1,6 +1,13 @@
-import { SortOptions } from 'core/sorting'
-
 export type Rect = [number, number, number, number]
+
+export type SortAxis = 'top' | 'bottom' | 'left' | 'right' | 'area' | 'none'
+export type SortDirection = 'asc' | 'desc'
+
+export interface SortOptions {
+        by?: SortAxis
+        dir?: SortDirection
+        comparator?: (a: Rect, b: Rect) => number
+}
 
 export interface Size {
         width: number

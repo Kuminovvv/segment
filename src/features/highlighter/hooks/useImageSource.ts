@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { Size } from 'api/types'
+import { Size } from 'shared/api/types'
 
 interface ImageState {
         element: HTMLImageElement | null

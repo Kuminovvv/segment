@@ -1,4 +1,4 @@
-import { Rect } from 'api/types'
+import { Rect } from 'shared/api/types'
 
 const DEFAULT_RECT: Rect = [0.1, 0.1, 0.2, 0.2]
 const SHIFT_STEP = 0.08
