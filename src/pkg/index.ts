@@ -1,0 +1,1 @@
+export { ImageHighlighterModule } from './ImageHighlighterModule'
