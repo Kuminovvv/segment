@@ -1,4 +1,6 @@
-export { ImageHighlighterModule } from './pkg'
-export type {ImageHighlighterRef} from "./types/ImageHighlighterRef"
-export type {ExtendedImageHighlighterProps} from "./types/ExtendedImageHighlighterProps"
-export type {SortOptions} from "./hooks/rectSorting"
+export { ImageHighlighterModule } from './features/image-highlighter/ImageHighlighterModule'
+export type {
+  ImageHighlighterRef,
+  ExtendedImageHighlighterProps,
+  SortOptions,
+} from './features/image-highlighter/types'
